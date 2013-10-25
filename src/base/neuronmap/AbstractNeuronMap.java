@@ -12,9 +12,9 @@ import java.util.List;
  * Time: 3:44 PM
  * To change this template use File | Settings | File Templates.
  */
-public abstract class AbstractNeuronMap<N extends AbstractNeuron> implements Serializable {
+public abstract class AbstractNeuronMap<N extends AbstractNeuron,P extends NeuronMapParameters> implements Serializable {
     //TODO document
-    protected List<N> neurons;
+    protected final List<N> neurons;
 
     protected AbstractNeuronMap(List<N> neurons) {
         this.neurons = neurons;
@@ -31,5 +31,5 @@ public abstract class AbstractNeuronMap<N extends AbstractNeuron> implements Ser
        }
     }
 
-
+    public abstract void populate(P parameters);
 }
