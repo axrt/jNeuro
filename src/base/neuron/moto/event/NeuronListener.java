@@ -9,7 +9,7 @@ import base.neuron.AbstractNeuron;
  * Time: 4:18 PM
  * To change this template use File | Settings | File Templates.
  */
-public interface NeuronListener <N extends AbstractNeuron>{
+public interface NeuronListener <N extends AbstractNeuron<N>>{
     //TODO document
     public void receiveNeuronEvent(N n);
 

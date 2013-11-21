@@ -14,14 +14,16 @@ import java.util.List;
  * Time: 4:16 PM
  * To change this template use File | Settings | File Templates.
  */
-public abstract class AbstractMotoNeuron<M extends AbstractMotoNeuron, N extends NeuronListener<M>> extends CortexNeuron {
+public abstract class AbstractMotoNeuron<M extends AbstractMotoNeuron<M,N>, N extends NeuronListener<M>> extends CortexNeuron {
     //Todo document
     protected List<N> listeners;
 
     protected AbstractMotoNeuron(double conductivity, double threshold) {
         super(conductivity, threshold);
     }
-
+    protected AbstractMotoNeuron(double conductivity, double threshold, String name) {
+        super(conductivity, threshold, name);
+    }
     public synchronized void addListener(N listener) {
         this.listeners.add(listener);
     }

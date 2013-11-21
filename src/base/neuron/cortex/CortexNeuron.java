@@ -9,7 +9,7 @@ import base.neuron.AbstractNeuron;
  * Time: 3:55 PM
  * To change this template use File | Settings | File Templates.
  */
-public class CortexNeuron extends AbstractNeuron<AbstractNeuron> {
+public class CortexNeuron<N extends AbstractNeuron> extends AbstractNeuron<N> {
     //Todo document
     protected double threshold;
 
@@ -17,7 +17,10 @@ public class CortexNeuron extends AbstractNeuron<AbstractNeuron> {
         super(conductivity);
         this.threshold=threshold;
     }
-
+    protected CortexNeuron(double conductivity, double threshold, String name) {
+        super(conductivity, name);
+        this.threshold=threshold;
+    }
     @Override
     public void checkActivation() {
         if(this.membranePotential>=this.threshold){
@@ -47,5 +50,7 @@ public class CortexNeuron extends AbstractNeuron<AbstractNeuron> {
         this.membranePotential+=ammount;
     }
 
-
+    public void setThreshold(double threshold) {
+        this.threshold = threshold;
+    }
 }

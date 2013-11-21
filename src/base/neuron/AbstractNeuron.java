@@ -3,6 +3,7 @@ package base.neuron;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,8 +12,9 @@ import java.util.List;
  * Time: 3:32 PM
  * Generalized abstraction for other types of neurons to subclass from
  */
-public abstract class AbstractNeuron<N extends AbstractNeuron> implements Serializable{
+public abstract class AbstractNeuron<N extends AbstractNeuron<N>> implements Serializable{
      //TODO document
+    protected final String name;
     /**
      * The charge conducted
      */
@@ -32,6 +34,11 @@ public abstract class AbstractNeuron<N extends AbstractNeuron> implements Serial
 
     protected AbstractNeuron(double conductivity) {
         this.conductivity = conductivity;
+        this.name=UUID.randomUUID().toString();
+    }
+    protected AbstractNeuron(double conductivity, String name) {
+        this.conductivity = conductivity;
+        this.name=name;
     }
 
     /**

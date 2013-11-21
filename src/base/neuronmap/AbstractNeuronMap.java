@@ -3,6 +3,7 @@ package base.neuronmap;
 import base.neuron.AbstractNeuron;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,24 +13,24 @@ import java.util.List;
  * Time: 3:44 PM
  * To change this template use File | Settings | File Templates.
  */
-public abstract class AbstractNeuronMap<N extends AbstractNeuron,P extends NeuronMapParameters> implements Serializable {
+public abstract class AbstractNeuronMap<N extends AbstractNeuron<N>,P extends AbstractNeuronMapParameters> extends ArrayList<N> {
     //TODO document
-    protected final List<N> neurons;
 
-    protected AbstractNeuronMap(List<N> neurons) {
-        this.neurons = neurons;
+    protected final P parameters;
+    protected AbstractNeuronMap(P parameters) {
+        this.parameters=parameters;
     }
 
     public void pulse(){
-       for(N n:neurons){
+       for(N n:this){
            n.checkActivation();
        }
-       for(N n:neurons){
+       for(N n:this){
            if(n.isActive()){
                n.transmit();
            }
        }
     }
 
-    public abstract void populate(P parameters);
+    public abstract void populate();
 }

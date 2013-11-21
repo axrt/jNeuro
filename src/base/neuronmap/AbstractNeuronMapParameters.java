@@ -7,12 +7,12 @@ package base.neuronmap;
  * Time: 7:09 PM
  * To change this template use File | Settings | File Templates.
  */
-public abstract class NeuronMapParameters {
-
+public abstract class AbstractNeuronMapParameters {
+    //TODO document
     protected final int maxNumberOfCortexNeurons;
     protected final int maxNumberOfConnectionsPerNeuron;
 
-    protected NeuronMapParameters(int maxNumberOfCortexNeurons, int maxNumberOfConnectionsPerNeuron) {
+    protected AbstractNeuronMapParameters(int maxNumberOfCortexNeurons, int maxNumberOfConnectionsPerNeuron) {
         this.maxNumberOfCortexNeurons = maxNumberOfCortexNeurons;
         this.maxNumberOfConnectionsPerNeuron = maxNumberOfConnectionsPerNeuron;
     }

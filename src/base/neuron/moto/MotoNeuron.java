@@ -12,7 +12,7 @@ import base.neuron.moto.event.NeuronListener;
  */
 public class MotoNeuron extends AbstractMotoNeuron<MotoNeuron,NeuronListener<MotoNeuron>> {
     //Todo document
-    public MotoNeuron(double conductivity, double threshold) {
+    protected MotoNeuron(double conductivity, double threshold) {
         super(conductivity, threshold);
     }
 

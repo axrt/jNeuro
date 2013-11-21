@@ -1,5 +1,6 @@
-package base.neuron;
+package base.neuron.recept;
 
+import base.neuron.AbstractNeuron;
 import base.neuron.cortex.CortexNeuron;
 
 /**
@@ -9,7 +10,7 @@ import base.neuron.cortex.CortexNeuron;
  * Time: 4:46 PM
  * To change this template use File | Settings | File Templates.
  */
-public abstract class AbstractReceptorNeuron<T> extends CortexNeuron {
+public abstract class AbstractReceptorNeuron<N extends AbstractNeuron, T extends Receptable> extends CortexNeuron<N> {
     //TOdo document
     protected AbstractReceptorNeuron(double conductivity, double threshold) {
         super(conductivity, threshold);

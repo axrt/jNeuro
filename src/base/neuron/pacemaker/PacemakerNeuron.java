@@ -10,7 +10,7 @@ import base.neuron.cortex.CortexNeuron;
  * Time: 4:04 PM
  * To change this template use File | Settings | File Templates.
  */
-public class PacemakerNeuron extends CortexNeuron {
+public class PacemakerNeuron<N extends AbstractNeuron<N>> extends CortexNeuron<N> {
 
     //TODO document
 
@@ -19,7 +19,10 @@ public class PacemakerNeuron extends CortexNeuron {
         super(conductivity, 0);
         this.active=true;
     }
-
+    protected PacemakerNeuron(double conductivity, String name) {
+        super(conductivity, 0, name);
+        this.active=true;
+    }
 
     @Override
     public void checkActivation() {
